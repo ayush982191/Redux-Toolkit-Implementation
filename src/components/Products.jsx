@@ -18,6 +18,7 @@ function Products() {
     const dispatch = useDispatch();
     const {data : products  ,status } = useSelector((state)=>state.product)
   // const products=[];
+    const [itemAdded,setItemAdded]=useState(false);
 
 
     const bull = (
@@ -29,7 +30,8 @@ function Products() {
         </Box>
       );
       const handleAdd=(item)=>{
-        dispatch(add(item)) 
+        dispatch(add(item)) ;
+        setItemAdded(true);
      }      
     // const fetchProducts=async ()=>{
     //     const url = `https://fakestoreapi.com/products`;
@@ -41,6 +43,7 @@ function Products() {
     useEffect(()=>{
         // fetchProducts();
         dispatch(fetchProduct());
+        // setItemAdded(false);
     },[])
     console.log("Statuss=",status);
     if(status===STATUSES.LOADING)

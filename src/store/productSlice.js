@@ -9,12 +9,19 @@ export const STATUSES =Object.freeze({
     LOADING : 'loading'
 })
 export const fetchProduct = createAsyncThunk("product/fetch",async ()=>{
-    await axios.get("https://fakestoreapi.com/products")
-           .then((response)=>{
-               console.log("data coming is ",response.data);
-               return response.data
-           })
-           .catch((error)=>console.log("Show error"))
+    // await axios.get("https://fakestoreapi.com/products")
+    //        .then((response)=>{
+    //            console.log("data coming is ",response.data);
+    //            return response.data
+    //        })
+    //        .catch((error)=>console.log("Show error"))
+   try {
+    const response = await axios.get("https://fakestoreapi.com/products");
+    const data=await response.data;
+    return data
+   } catch (error) {
+    console.log("show erro");
+   }
 })
  
 const productSlice = createSlice({
