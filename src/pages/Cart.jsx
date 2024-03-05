@@ -9,7 +9,14 @@ const dispatch = useDispatch();
   const handleRemove=(id)=>{
     dispatch(remove(id))
 }
-  console.log("products are ",products);
+const totalPrice=()=>{
+  let cartValue=0;
+   cartValue=products.reduce((accumulator, item)=> accumulator += item.item.price,0);
+  // console.log("cart value is ",cartValue);
+  return cartValue;
+
+}
+  // console.log("products are ",products);
   return (
     <div>
       <h3>Your Cart Items:-</h3>
@@ -29,8 +36,10 @@ const dispatch = useDispatch();
         </div>
         ))  
       } 
+      <h1>Total Price = {totalPrice()}</h1>
     </div>
      }
+     
     </div>
   )
 }
