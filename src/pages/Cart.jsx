@@ -28,9 +28,9 @@ const totalPrice=()=>{
           <div className="card" style={{display:"flex",alignItems:"center",justifyContent:"space-around",borderBottom:"2px solid black"}} >
           <img src={item.item.image} alt="Avatar" style={{width :"10rem",height:"8rem"}} />
           <div className="container" style={{padding:"2px 16px",width:"25rem"}} >
-            <h4><b>{item.title}</b></h4>
+            <h4><b>{item.item.title}</b></h4>
             <p  >{item.item.description}</p>
-
+            <h3 style={{color:"#cc6600"}} >Rs: {item.item.price}</h3>
           </div>
            <Button onClick={()=>handleRemove(item.item.id)} style={{height:"2rem"}} variant='outlined' >Remove</Button>
         </div>
