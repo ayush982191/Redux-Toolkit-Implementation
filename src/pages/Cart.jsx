@@ -13,21 +13,24 @@ const dispatch = useDispatch();
   return (
     <div>
       <h3>Your Cart Items:-</h3>
+     {
+      products.length==0 ? <h1>OOps Your cart is Empty</h1> : 
       <div className="cartWrapper" style={{marginTop:"5rem"}}>
-        {
-          products.map((item)=>(
-            <div class="card" style={{display:"flex",alignItems:"center",justifyContent:"space-around",borderBottom:"2px solid black"}} >
-            <img src={item.image} alt="Avatar" style={{width :"10rem",height:"8rem"}} />
-            <div class="container" style={{padding:"2px 16px",width:"25rem"}} >
-              <h4><b>{item.title}</b></h4>
-              <p  >{item.description}</p>
+      {
+        products.map((item)=>(
+          <div className="card" style={{display:"flex",alignItems:"center",justifyContent:"space-around",borderBottom:"2px solid black"}} >
+          <img src={item.item.image} alt="Avatar" style={{width :"10rem",height:"8rem"}} />
+          <div className="container" style={{padding:"2px 16px",width:"25rem"}} >
+            <h4><b>{item.title}</b></h4>
+            <p  >{item.item.description}</p>
 
-            </div>
-             <Button onClick={()=>handleRemove(item.id)} style={{height:"2rem"}} variant='outlined' >Remove</Button>
           </div>
-          ))  
-        } 
-      </div>
+           <Button onClick={()=>handleRemove(item.item.id)} style={{height:"2rem"}} variant='outlined' >Remove</Button>
+        </div>
+        ))  
+      } 
+    </div>
+     }
     </div>
   )
 }

@@ -9,14 +9,14 @@ function Navbar() {
 
   return (
     <>
-   <div style={{display:"flex" , justifyContent:"space-around",alignItems:"center",border:"2px solid black",padding:"2rem"}} >
+   <div style={{display:"flex" , justifyContent:"space-around",alignItems:"center",padding:"2rem"}} >
    <span className="logo" >Redux</span>
     <div style={{display:"flex",justifyContent:"space-around", width:"10rem"}}>
-        <Link className='navLink' to="/" >Home</Link>
-        <Link className='navLink' to="/cart" >Cart</Link>                                                                                               
+        <Link className='navLink' style={{textDecoration:"none", color:"#cc6600"}} to="/" >Home</Link>
+        <Link className='navLink' style={{textDecoration:"none", color:"#cc6600"}} to="/cart" >Cart</Link>                                                                                               
     </div>
-    <div className="cartCount">
-        cart Item : {items.length}
+    <div className="cartCount" style={{border:"2px solid black", padding:"1rem",borderRadius:"10px",}} >
+       <Link to="/cart" style={{textDecoration:"none", color:"#cc6600"}} >cart Item : <span style={{fontSize:"20px"}} > {items.length}</span></Link>
     </div>
    </div>
     </>
